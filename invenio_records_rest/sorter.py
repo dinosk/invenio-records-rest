@@ -117,7 +117,11 @@ def default_sorter_factory(search, index):
     # Get default sorting if sort is not specified.
     if not urlfield:
         # cast to six.text_type to handle unicodes in Python 2
-        has_query = request.values.get('q', type=six.text_type)
+        try:
+            text_type = unicode
+        except NameError:
+            text_type = str
+        has_query = request.values.get('q', type=text_type)
         urlfield = current_app.config['RECORDS_REST_DEFAULT_SORT'].get(
             index, {}).get('query' if has_query else 'noquery', '')
 

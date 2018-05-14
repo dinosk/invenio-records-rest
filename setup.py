@@ -81,7 +81,6 @@ install_requires = [
     'invenio-indexer>=1.0.0',
     'marshmallow>=2.5.0',
     'python-dateutil>=2.4.2',
-    'six>=1.10',
     'webargs>=1.3.2',
 ]
 
